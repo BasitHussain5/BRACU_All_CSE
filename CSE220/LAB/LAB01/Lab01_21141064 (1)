@@ -1,0 +1,405 @@
+# Task 01
+def shiftLeft(source,k):
+    if k < 0 or k > len(source):
+        print("Invalid value!")
+        return
+    i = 0
+    while i < k:
+        j = 0
+        while j < len(source) - 1:
+            source[j] = source[j+1]
+            j = j + 1
+        source[len(source)-1] = 0
+        i = i + 1
+    print(source)
+
+
+def main():
+    source = [10,20,30,40,50,60]
+    shiftLeft(source,3)
+    
+    source = [10,20,30,40,50,60]
+    shiftLeft(source,5)
+    
+    source = [10,20,30,40,50,60]
+    shiftLeft(source,-1)
+    
+if __name__ == "__main__":
+    main()
+ 
+ 
+ 
+ 
+# Task 02:
+def rotateLeft(source, k):
+    i = 0
+    while i < k:
+        temp = source[0]
+        j = 0
+        while j < len(source) - 1:
+            source[j] = source[j + 1]
+            j = j + 1
+        source[len(source) - 1] = temp
+        i = i + 1
+    print(source)
+
+
+def main():
+    source = [10,20,30,40,50,60]    
+    rotateLeft(source, 1)
+    
+    source = [10,20,30,40,50,60]    
+    rotateLeft(source, 2)
+    
+    source = [10,20,30,40,50,60]    
+    rotateLeft(source, 3)
+    
+if __name__ == "__main__":
+    main()
+    
+    
+    
+    
+# Task 03:
+# Method 1
+def shifRight(source, k):
+    if k < 0 or k > len(source):
+        print("Invalid value!")
+        return
+    i = 0
+    while i < k:
+        j = len(source) - 1
+        while j > 0:
+            source[j] = source[j - 1]
+            j = j - 1
+        source[0] = 0
+        i = i + 1
+    print(source)
+    
+def main():
+    source = [10,20,30,40,50,60]
+    shifRight(source,3)
+    
+    source = [10,20,30,40,50,60]
+    shifRight(source,4)
+    
+    source = [10,20,30,40,50,60]
+    shifRight(source,-1)
+    
+if __name__ == "__main__":
+    main()
+ 
+ 
+# Method 2
+
+def shifRight(source, k):
+    if k < 0 or k > len(source):
+        print("Invalid value!")
+        return
+    i = len(source) - 1
+    while i >= k:
+        source[i] = source[i - k]
+        i = i - 1
+    i = 0
+    while i < k:
+        source[i] = 0
+        i = i + 1
+    print(source)
+    
+def main():
+    source = [10,20,30,40,50,60]
+    shifRight(source,3)
+    
+    source = [10,20,30,40,50,60]
+    shifRight(source,4)
+    
+    source = [10,20,30,40,50,60]
+    shifRight(source,-1)
+    
+if __name__ == "__main__":
+    main()
+    
+    
+    
+ 
+# Task 04:
+def rotateRight(source, k):
+    i = 0
+    while i < k:
+        temp = source[len(source) - 1]
+        j = len(source) - 1
+        while j > 0:
+            source[j] = source[j - 1]
+            j = j - 1
+        source[0] = temp
+        i = i + 1
+    print(source)
+
+def main():
+    source = [10,20,30,40,50,60]
+    rotateRight(source,1)
+    
+    source = [10,20,30,40,50,60]
+    rotateRight(source,2)
+    
+    source = [10,20,30,40,50,60]
+    rotateRight(source,3)
+    
+if __name__ == "__main__":
+    main()
+    
+    
+    
+    
+# Task 5:
+def remove(source, size, idx):
+    if idx < 0 or idx > size:
+        print("Invalid index!")
+        return
+    i = idx
+    while i < size -1:
+        source[i] = source[i + 1]
+        i = i + 1
+    source[size-1] = 0
+    print(source)
+
+
+def main():
+    source = [10,20,30,40,50,0,0]
+    remove(source,5,2)
+    
+    source = [10,20,30,40,50]
+    remove(source,5,3)
+    
+    source = [10,20,30,40,50,0,0]
+    remove(source,5,-1)
+    
+if __name__ == "__main__":
+    main()
+    
+    
+    
+    
+# Task 06:
+# Method 01:
+def remove_all(source, size, element):
+    if size <= 0 or size > len(source):
+        print("Invalid Size!")
+        return
+    if element not in source:
+        print("Element is not exist in Array!")
+        return
+    
+    for i in range(size):
+        if source[i] == element:
+            source[i] = 0
+            
+    j = 0
+    for k in range(size):
+        if source[k] != 0:
+            tem = source[j]
+            source[j] = source[k]
+            source[k] = tem
+            j = j + 1
+    
+    print(source)
+
+def main():
+    source = [10,2,30,2,50,2,2,0,0]
+    remove_all(source, 7, 2)
+    
+    source = [10,2,30,2,50,2,2,0,0]
+    remove_all(source, 7, 3)
+    
+    source = [10,2,30,2,50,2,2,0,0]
+    remove_all(source, -7, 2)
+    
+if __name__ == "__main__":
+    main()
+    
+ 
+# Method 2:
+
+def remove_all(source, size, element):
+    if size <= 0 or size > len(source):
+        print("Invalid Size!")
+        return
+    if element not in source:
+        print("Element is not exist in Array!")
+        return
+    
+    new_array = [0] * len(source)
+    ind = 0
+    i = 0
+    while i < size:
+        if source[i] != element:
+            new_array[ind] = source[i]
+            ind = ind + 1
+        i = i + 1
+    print(new_array)
+
+def main():
+    source = [10,2,30,2,50,2,2,0,0]
+    remove_all(source, 7, 2)
+    
+    source = [10,2,30,2,50,2,2,0,0]
+    remove_all(source, 7, 3)
+    
+    source = [10,2,30,2,50,2,2,0,0]
+    remove_all(source, -7, 2)
+    
+if __name__ == "__main__":
+    main()
+   
+   
+   
+   
+# Task 07:
+def splitting_array(array_A):
+    left_sum = [0]
+    right_sum = []
+    result = None
+    i = 0
+    while i < len(array_A):
+        if i == 0:
+            left_sum[i] = array_A[i]
+            right_sum = array_A[i + 1 :len(array_A)]
+            if sum(left_sum) == sum(right_sum):
+                result = True
+                break
+            else:
+                left_sum = []
+                result = True
+                
+        else:
+            left_sum = array_A[0:i+1]
+            right_sum = array_A[i + 1: len(array_A)]
+            if sum(left_sum) == sum(right_sum):
+                result = True
+                break
+            else:
+                result = False
+        i = i +1
+    print(result)
+    
+def main():
+    source = [1, 1, 1, 2, 1]
+    splitting_array(source)
+    
+    source = [2, 1, 1, 2, 1]
+    splitting_array(source)
+    
+    source = [10, 3, 1, 2, 10]
+    splitting_array(source)
+    
+if __name__ == "__main__":
+    main()
+    
+ 
+ 
+ 
+# Task 08:
+def array_series(n):
+    array = [0] * (n * n)
+    
+    i = 1
+    while i <= n:
+        x = 1
+        while x <= i:
+            array[(i*n) - x] = x
+            x = x+1
+        i = i + 1
+    print(array)
+    
+def main():
+    array_series(2)
+    array_series(3)
+    array_series(4)
+if __name__ == "__main__":
+    main()
+    
+    
+    
+   
+# Task 09:
+def max_bunch(array):
+    x = 0
+    y = 0
+    for i in range(len(array)):
+        if i == 0:
+            pre = array[i]
+            x = 1
+        elif array[i] == pre:
+            x = x + 1
+        else:
+            if x > y:
+                y = x
+            x = 1
+            pre = array[i]
+    if y > x:
+        print(y)
+    print(x)
+
+def main():
+    source =  [1, 2, 2, 3, 4, 4, 4] 
+    max_bunch(source)
+    
+    source =  [1,1,2, 2, 1, 1,1,1]
+    max_bunch(source)
+
+    source =  [1, 2, 2, 3, 4, 4, 4]
+    max_bunch(source)
+if __name__ == "__main__":
+    main()
+    
+    
+    
+    
+# Task 10:
+def CheckRepitition(orig_array):
+    nw_arr = [0] * len(orig_array) * 2
+    nw_ind = 0
+    sz = 0
+    i = 0
+    while i < len(orig_array):
+        flag = False
+        for j in range(0,len(nw_arr),2):
+            if (nw_arr[j] == orig_array[i]):
+                flag = True
+                indx = j
+                j = len(nw_arr)
+        if (flag):
+            nw_arr[indx + 1] += 1
+
+        else:
+            nw_arr[nw_ind] = orig_array[i]
+            nw_arr[nw_ind + 1] = 1
+            nw_ind += 2
+            sz += 1
+        i += 1
+    arr_01 = [0] * sz
+    con = 0
+    x = 1
+    while x < (sz*2):
+        if (nw_arr[x] > 1):
+            arr_01[con] = nw_arr[x]
+            con += 1
+        x += 2
+    for l in range(con):
+        for j in range(l + 1, con):
+            if (arr_01[l] == arr_01[j]):
+                return True
+    return False
+
+
+def main():
+    source =  [3,4,6,3,4,7,4,6,8,6,6]
+    print(CheckRepitition(source))
+    
+    source =  [3,4,6,3,4,7,4,6,8,6]
+    print(CheckRepitition(source))
+
+    source =  [3,4,6,3,4,7,4,6,8,6,5,8]
+    print(CheckRepitition(source))
+if __name__ == "__main__":
+    main()
