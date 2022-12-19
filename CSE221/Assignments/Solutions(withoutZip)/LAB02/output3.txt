@@ -1,0 +1,4 @@
+Q3(i)
+-1 2 5 8 10 
+Q3(ii)
+kth (smallest) element from an array without sorting is K = 5 ----> 8

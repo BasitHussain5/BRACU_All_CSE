@@ -1,0 +1,13 @@
+Q 4 (a)
+['ABC 3']
+['ABC 3', 'EWQ 3']
+['SDF 2', 'ABC 3', 'EWQ 3']
+['KLM 1', 'SDF 2', 'ABC 3', 'EWQ 3']
+['SDF 2', 'ABC 3', 'EWQ 3']
+['ABC 3', 'EWQ 3']
+['FDS 1', 'ABC 3', 'EWQ 3']
+['FDS 1', 'ABC 3', 'EWQ 3', 'OPN 3']
+['FDS 1', 'ABC 3', 'EWQ 3', 'OPN 3', 'TYU 3']
+['ABC 3', 'EWQ 3', 'OPN 3', 'TYU 3']
+['XCV 2', 'ABC 3', 'EWQ 3', 'OPN 3', 'TYU 3']
+['ABC 3', 'EWQ 3', 'OPN 3', 'TYU 3']
